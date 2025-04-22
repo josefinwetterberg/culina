@@ -1,6 +1,4 @@
-
-
-function RecipeList({ recipes, searchTerm, isLoading }) {
+function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
   if (isLoading) {
     return <div className="recipe-list">Loading recipes...</div>;
   }
@@ -10,19 +8,38 @@ function RecipeList({ recipes, searchTerm, isLoading }) {
   }
 
   if (recipes.length === 0) {
-    return <div className="recipe-list">No recipes found for "{searchTerm}"</div>;
+    return (
+      <div className="recipe-list">
+        No recipes found for{" "}
+        {searchType === "recipe"
+          ? "recipe"
+          : searchType === "ingredient"
+          ? "ingredient"
+          : "category"}
+        : "{searchTerm}"
+      </div>
+    );
+  }
+
+  let resultsTitle;
+  if (searchType === "recipe") {
+    resultsTitle = `Results for recipe: "${searchTerm}"`;
+  } else if (searchType === "ingredient") {
+    resultsTitle = `Recipes containing: "${searchTerm}"`;
+  } else if (searchType === "category") {
+    resultsTitle = `Recipes in category: "${searchTerm}"`;
   }
 
   return (
     <div className="recipe-list">
-      <h2>Results for "{searchTerm}"</h2>
+      <h2>{resultsTitle}</h2>
       <div className="recipes-grid">
         {recipes.map((recipe) => (
           <div key={recipe.idMeal} className="recipe-card">
             <img src={recipe.strMealThumb} alt={recipe.strMeal} />
             <h3>{recipe.strMeal}</h3>
-            <p>Category: {recipe.strCategory}</p>
-            <p>Origin: {recipe.strArea}</p>
+            <p>Category: {recipe.strCategory || "Not specified"}</p>
+            <p>Origin: {recipe.strArea || "Not specified"}</p>
           </div>
         ))}
       </div>
