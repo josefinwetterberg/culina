@@ -1,29 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home"
-import Recipe from "./pages/Recipe";
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/recipe/:id" element={<Recipe />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
+import { useState } from "react";
+import RecipeSearch from "../components/RecipeSearch";
+import RecipeList from "../components/RecipeList";
 
 
-/* import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import RecipeSearch from "./components/RecipeSearch";
-import RecipeList from "./components/RecipeList";
-
-function App() {
+function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +23,7 @@ function App() {
         url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`;
       } else if (type === "category") {
         url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${term}`;
-      }else{
+      } else {
         url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${term}`;
       }
 
@@ -85,9 +65,18 @@ function App() {
           searchType={searchType}
         />
       </div>
+      {/*
+    <form action="">
+      <search>
+        <input type="text" />
+        <button type='submit'>Search</button>
+      </search>
+     </form>
+     <div className='recipe-container'>
+
+     </div> */}
     </>
   );
 }
 
-export default App;
- */
+export default Home;
