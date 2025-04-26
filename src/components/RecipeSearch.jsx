@@ -28,6 +28,24 @@ function RecipeSearch({ onSubmitRecipe }) {
     fetchCategories();
   }, []);
 
+
+  useEffect(() => {
+    if (searchTerm.trim().length > 0) {
+      onSubmitRecipe(searchTerm, searchType);
+    }
+  }, [searchTerm, searchType, onSubmitRecipe]);
+
+  const handleSearchTermChange = (e) => {
+    setSearchTerm(e.target.value);
+    
+  };
+
+ 
+  const handleSearchTypeChange = (newType) => {
+    setSearchType(newType);
+  
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmitRecipe(searchTerm, searchType);
@@ -42,7 +60,7 @@ function RecipeSearch({ onSubmitRecipe }) {
             name="search-type"
             value="recipe"
             checked={searchType === "recipe"}
-            onChange={() => setSearchType("recipe")}
+            onChange={() => handleSearchTypeChange("recipe")}
           ></input>
           Search by Recipe Name
         </label>
@@ -53,7 +71,7 @@ function RecipeSearch({ onSubmitRecipe }) {
             name="search-type"
             value="recipe"
             checked={searchType === "ingredient"}
-            onChange={() => setSearchType("ingredient")}
+            onChange={() => handleSearchTypeChange("ingredient")}
           ></input>
           Search by Ingredient
         </label>
@@ -64,7 +82,7 @@ function RecipeSearch({ onSubmitRecipe }) {
             name="search-type"
             value="recipe"
             checked={searchType === "category"}
-            onChange={() => setSearchType("category")}
+            onChange={() => handleSearchTypeChange("category")}
           ></input>
           Search by Category
         </label>
@@ -77,7 +95,7 @@ function RecipeSearch({ onSubmitRecipe }) {
             <select
               id="categorySelect"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchTermChange}
               className="category-select"
             >
               <option value="">Select a category</option>

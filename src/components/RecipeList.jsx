@@ -3,7 +3,7 @@ function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
     return <div className="recipe-list">Loading recipes...</div>;
   }
 
-  if (!searchTerm) {
+  if (!searchTerm || searchTerm.trim().length < 2) {
     return <div className="recipe-list">Search for recipes to see results</div>;
   }
 
