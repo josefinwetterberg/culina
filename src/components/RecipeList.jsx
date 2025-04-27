@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
   if (isLoading) {
     return <div className="recipe-list">Loading recipes...</div>;
@@ -35,12 +37,14 @@ function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
       <h2>{resultsTitle}</h2>
       <div className="recipes-grid">
         {recipes.map((recipe) => (
-          <div key={recipe.idMeal} className="recipe-card">
-            <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-            <h3>{recipe.strMeal}</h3>
-            <p>Category: {recipe.strCategory || "Not specified"}</p>
-            <p>Origin: {recipe.strArea || "Not specified"}</p>
-          </div>
+          <Link key={recipe.idMeal} to={`/recipe/${recipe.idMeal}`}>
+            <div key={recipe.idMeal} className="recipe-card">
+              <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+              <h3>{recipe.strMeal}</h3>
+              <p>Category: {recipe.strCategory || "Not specified"}</p>
+              <p>Origin: {recipe.strArea || "Not specified"}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
