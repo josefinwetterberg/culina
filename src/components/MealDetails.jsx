@@ -121,13 +121,11 @@ function MealDetails() {
             Instructions
           </h2>
           <div className="instructions-content">
-            
-              <p  className="instruction-paragraph">
-              {instructionParagraphs.map((paragraph, index) => (
-              <p key={index} className="instruction-paragraph">{paragraph}</p>
-            ))}
+            {instructionParagraphs.map((paragraph, index) => (
+              <p key={index} className="instruction-paragraph">
+                {paragraph}
               </p>
-           
+            ))}
           </div>
 
           {meal.strYoutube && (
