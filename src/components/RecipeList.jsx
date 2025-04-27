@@ -13,11 +13,6 @@ function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
     return (
       <div className="recipe-list">
         No recipes found for{" "}
-        {searchType === "recipe"
-          ? "recipe"
-          : searchType === "ingredient"
-          ? "ingredient"
-          : "category"}
         : "{searchTerm}"
       </div>
     );

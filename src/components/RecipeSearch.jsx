@@ -30,7 +30,9 @@ function RecipeSearch({ onSubmitRecipe }) {
 
 
   useEffect(() => {
-    if (searchTerm.trim().length > 0) {
+    if (searchTerm.trim().length > 35) {
+      setSearchTerm(searchTerm.slice(0, 35));
+    } else if (searchTerm.trim().length > 0) {
       onSubmitRecipe(searchTerm, searchType);
     }
   }, [searchTerm, searchType, onSubmitRecipe]);
