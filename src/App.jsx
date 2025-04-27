@@ -4,12 +4,14 @@ import Recipe from "./pages/Recipe";
 
 function App() {
   return (
+    <main>
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recipe/:id" element={<Recipe />} />
       </Routes>
-    </Router>
+      </Router>
+      </main>
   );
 }
 

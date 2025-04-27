@@ -1,8 +1,8 @@
 //TODO: Byt ut denna till riktig komponent.
 
-
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import "./mealdetails.css"
 
 function MealDetails() {
   const { id } = useParams();
@@ -17,11 +17,35 @@ function MealDetails() {
   if (!meal) return <p>Loading...</p>;
 
   return (
-    <div>
-      <h2>{meal.strMeal}</h2>
-      <img src={meal.strMealThumb} alt={meal.strMeal} />
-      <p>{meal.strInstructions}</p>
-    </div>
+    <>
+      <div className="image-wrapper">
+        <img src={meal.strMealThumb} alt={meal.strMeal} />
+      </div>
+      <div>
+        <h1>{meal.strMeal}</h1>
+        <h3>Category: {meal.strCategory || "Not specified"}</h3>
+        <h3>Origin: {meal.strArea || "Not specified"}</h3>
+      </div>
+      <div>
+        <h2>Ingredients:</h2>
+        <ul>
+          {Object.keys(meal)
+            .filter((key) => key.startsWith("strIngredient") && meal[key])
+            .map((key) => {
+              const ingredientNumber = key.slice("strIngredient".length);
+              return (
+                <li key={key}>
+                  {meal[`strMeasure${ingredientNumber}`] || ""} {meal[key]}
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+      <h2>Instructions</h2>
+      <div>
+        <p>{meal.strInstructions}</p>
+      </div>
+    </>
   );
 }
 
