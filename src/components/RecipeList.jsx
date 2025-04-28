@@ -34,7 +34,7 @@ function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
         {recipes.map((recipe) => (
           <Link key={recipe.idMeal} to={`/recipe/${recipe.idMeal}`}>
             <article key={recipe.idMeal} className="recipe-card">
-              <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+              <img src={recipe.strMealThumb} alt={`A photograph of ${recipe.strMeal}`} />
               <h3>{recipe.strMeal}</h3>
               <p>Category: {recipe.strCategory || "Not specified"}</p>
               <p>Origin: {recipe.strArea || "Not specified"}</p>
