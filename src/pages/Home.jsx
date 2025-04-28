@@ -2,7 +2,6 @@ import { useState, useCallback, useRef } from "react";
 import RecipeSearch from "../components/RecipeSearch";
 import RecipeList from "../components/RecipeList";
 import debounce from "lodash/debounce";
-import Footer from "../components/Footer";
 import "../App.css";
 
 function Home() {
@@ -49,7 +48,6 @@ function Home() {
           }
         })
         .catch(error => {
-          console.error("Error fetching recipes:", error);
           setRecipes([]);
         })
         .finally(() => {
@@ -69,7 +67,7 @@ function Home() {
       <main>
         <section className="app-name">
           <h1 className="visually-hidden">Culina</h1>
-          <img src="./culina-logo.png" alt="" />
+          <img src="./culina-logo.png" alt="Culina Logo" />
         </section>
         
         <RecipeSearch onSubmitRecipe={handleRecipeSubmit} />

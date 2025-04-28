@@ -2,11 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 
 function RecipeSearch({ onSubmitRecipe }) {
-  const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [data, setData] = useState(null);
   const [searchType, setSearchType] = useState("recipe");
   const [categories, setCategories] = useState([]);
 
