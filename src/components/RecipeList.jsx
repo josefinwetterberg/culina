@@ -33,12 +33,12 @@ function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
       <div className="recipes-grid">
         {recipes.map((recipe) => (
           <Link key={recipe.idMeal} to={`/recipe/${recipe.idMeal}`}>
-            <div key={recipe.idMeal} className="recipe-card">
+            <article key={recipe.idMeal} className="recipe-card">
               <img src={recipe.strMealThumb} alt={recipe.strMeal} />
               <h3>{recipe.strMeal}</h3>
               <p>Category: {recipe.strCategory || "Not specified"}</p>
               <p>Origin: {recipe.strArea || "Not specified"}</p>
-            </div>
+            </article>
           </Link>
         ))}
       </div>

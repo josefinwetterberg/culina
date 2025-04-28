@@ -71,7 +71,7 @@ function RecipeSearch({ onSubmitRecipe }) {
           <input
             type="radio"
             name="search-type"
-            value="recipe"
+            value="ingredient"
             checked={searchType === "ingredient"}
             onChange={() => handleSearchTypeChange("ingredient")}
           ></input>
@@ -82,7 +82,7 @@ function RecipeSearch({ onSubmitRecipe }) {
           <input
             type="radio"
             name="search-type"
-            value="recipe"
+            value="category"
             checked={searchType === "category"}
             onChange={() => handleSearchTypeChange("category")}
           ></input>
