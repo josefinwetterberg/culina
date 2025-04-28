@@ -31,6 +31,10 @@ git clone https://github.com/josefinwetterberg/culina.git
 
 With the console in your cloned directory then enter the command:
 ```
+npm install
+```
+And then to start the server:
+```
 npm run dev
 ```
 Afterwards you should see the confirmation message and the port which it is hosted on (usually 3000).
