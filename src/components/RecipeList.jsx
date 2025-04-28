@@ -29,7 +29,7 @@ function RecipeList({ recipes, searchTerm, searchType, isLoading }) {
 
   return (
     <div className="recipe-list">
-      <h2>{resultsTitle}</h2>
+      <h2 className="result-title">{resultsTitle}</h2>
       <div className="recipes-grid">
         {recipes.map((recipe) => (
           <Link key={recipe.idMeal} to={`/recipe/${recipe.idMeal}`}>

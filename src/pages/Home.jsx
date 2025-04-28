@@ -66,8 +66,7 @@ function Home() {
 
   return (
     <>
-      <section>
-      <h1>Culina</h1>
+      <h1 className="app-name">Culina</h1>
       <RecipeSearch onSubmitRecipe={handleRecipeSubmit} />
 
       <div className="card">
@@ -78,8 +77,6 @@ function Home() {
           searchType={searchType}
         />
         </div>
-        </section>
-      <Footer></Footer> 
     </>
   );
 }

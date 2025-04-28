@@ -13,9 +13,8 @@ function App() {
             <Route path="/recipe/:id" element={<Recipe />} />
           </Routes>
         </Router>
-        
       </main>
-     
+      <Footer/>
     </>
   );
 }
