@@ -66,17 +66,23 @@ function Home() {
 
   return (
     <>
-      <h1 className="app-name">Culina</h1>
-      <RecipeSearch onSubmitRecipe={handleRecipeSubmit} />
+      <main>
+        <section className="app-name">
+          <h1 className="visually-hidden">Culina</h1>
+          <img src="./culina-logo.png" alt="" />
+        </section>
+        
+        <RecipeSearch onSubmitRecipe={handleRecipeSubmit} />
 
-      <div className="card">
-        <RecipeList
-          recipes={recipes}
-          searchTerm={searchTerm}
-          isLoading={isLoading}
-          searchType={searchType}
-        />
-        </div>
+        <section className="card">
+          <RecipeList
+            recipes={recipes}
+            searchTerm={searchTerm}
+            isLoading={isLoading}
+            searchType={searchType}
+          />
+          </section>
+        </main>
     </>
   );
 }

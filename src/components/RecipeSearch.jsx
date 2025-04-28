@@ -55,7 +55,8 @@ function RecipeSearch({ onSubmitRecipe }) {
 
   return (
     <form onSubmit={handleSubmit} className="recipe-search">
-      <div className="search-type">
+      <fieldset className="search-type">
+      <legend>Choose search type</legend>
         <label>
           <input
             type="radio"
@@ -71,7 +72,7 @@ function RecipeSearch({ onSubmitRecipe }) {
           <input
             type="radio"
             name="search-type"
-            value="recipe"
+            value="ingredient"
             checked={searchType === "ingredient"}
             onChange={() => handleSearchTypeChange("ingredient")}
           ></input>
@@ -82,13 +83,14 @@ function RecipeSearch({ onSubmitRecipe }) {
           <input
             type="radio"
             name="search-type"
-            value="recipe"
+            value="category"
             checked={searchType === "category"}
             onChange={() => handleSearchTypeChange("category")}
           ></input>
           Search by Category
         </label>
-      </div>
+      </fieldset>
+
 
       <div className="search-input">
         {searchType === "category" ? (
