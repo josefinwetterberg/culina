@@ -2,6 +2,7 @@ import { useState, useCallback, useRef } from "react";
 import RecipeSearch from "../components/RecipeSearch";
 import RecipeList from "../components/RecipeList";
 import debounce from "lodash/debounce";
+import Footer from "../components/Footer";
 import "../App.css";
 
 function Home() {
@@ -65,6 +66,7 @@ function Home() {
 
   return (
     <>
+      <section>
       <h1>Culina</h1>
       <RecipeSearch onSubmitRecipe={handleRecipeSubmit} />
 
@@ -75,7 +77,9 @@ function Home() {
           isLoading={isLoading}
           searchType={searchType}
         />
-      </div>
+        </div>
+        </section>
+      <Footer></Footer> 
     </>
   );
 }
