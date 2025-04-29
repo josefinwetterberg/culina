@@ -130,9 +130,4 @@ function RecipeSearch({ onSubmitRecipe }) {
   );
 }
 
-// function App() {
-//   const onSubmitRecipe = (recipe) => alert(`You entered: ${recipe}`);
-//   return ;
-// }
-
 export default RecipeSearch;
