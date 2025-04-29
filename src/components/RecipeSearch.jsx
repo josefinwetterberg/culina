@@ -52,7 +52,7 @@ function RecipeSearch({ onSubmitRecipe }) {
   return (
     <form onSubmit={handleSubmit} className="recipe-search">
       <fieldset className="search-type">
-      <legend>Choose search type</legend>
+        <legend>Choose search type</legend>
         <label>
           <input
             type="radio"
